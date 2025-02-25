@@ -2,7 +2,11 @@ import Link from 'next/link'
 import React from 'react'
 
 const Home = () => {
-	return <Link href={'/id'}>to ID</Link>
+	return (
+		<div>
+			<Link href={'/photo/id'}>to ID</Link>
+		</div>
+	)
 }
 
 export default Home
