@@ -11,3 +11,21 @@ export async function GET(
 	//returning response
 	return Response.json(comment)
 }
+
+export async function PATCH(
+	request: Request,
+	{ params }: { params: Promise<{ id: string }> }
+) {
+	//1. take id from parameters
+	const { id } = await params
+	//2. take body from request
+	const body = await request.json()
+	//3. extract text from body
+	const { text } = body
+	//4. finding index of comment based on id
+	const index = comments.findIndex((comment) => comment.id === Number(id))
+	//5. replacing text of comment with text from request body
+	comments[index].text = text
+	//6. returning response
+	return Response.json(comments[index])
+}
