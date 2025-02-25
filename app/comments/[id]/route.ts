@@ -40,7 +40,7 @@ export async function DELETE(
 	const index = comments.findIndex((comment) => comment.id === Number(id))
 	//removing comment from comments array
 	comments.splice(index, 1)
-	//
+	//returning response
 	return Response.json({
 		message: `Comment deleted successfully`,
 		comments,
