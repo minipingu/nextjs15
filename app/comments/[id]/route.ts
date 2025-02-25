@@ -29,20 +29,3 @@ export async function PATCH(
 	//6. returning response
 	return Response.json(comments[index])
 }
-
-export async function DELETE(
-	request: Request,
-	{ params }: { params: Promise<{ id: string }> }
-) {
-	//extract id from parameters
-	const { id } = await params
-	//finding index
-	const index = comments.findIndex((comment) => comment.id === Number(id))
-	//removing comment from comments array
-	comments.splice(index, 1)
-	//returning response
-	return Response.json({
-		message: `Comment deleted successfully`,
-		comments,
-	})
-}
