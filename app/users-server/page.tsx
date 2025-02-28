@@ -1,3 +1,4 @@
+import React from 'react'
 type User = {
 	id: number
 	name: string
@@ -6,10 +7,9 @@ type User = {
 	phone: string
 }
 
-import React from 'react'
-
 const UsersServer = async () => {
-	const response = await fetch('https://jsonplaceholder.typicode.com/users')
+	await new Promise((resolve) => setTimeout(resolve, 2000))
+	const response = await fetch('https://jsonplaceholder.typicode.com/users123')
 
 	const users: User[] = await response.json()
 
