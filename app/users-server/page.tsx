@@ -16,11 +16,20 @@ const UsersServer = async () => {
 	console.log(users)
 
 	return (
-		<div>
+		<ul className='flex flex-col gap-4 p-4 '>
 			{users.map((user) => (
-				<div key={user.id}>{user.name}</div>
+				<li
+					key={user.id}
+					className='p-4 bg-white shadow-md rounded-lg text-gray-700'>
+					<div className='font-bold'>{user.name}</div>
+					<div className='text-sm'>
+						<div>Username:{user.username}</div>
+						<div>Email : {user.email}</div>
+						<div>Phone:{user.phone}</div>
+					</div>
+				</li>
 			))}
-		</div>
+		</ul>
 	)
 }
 
