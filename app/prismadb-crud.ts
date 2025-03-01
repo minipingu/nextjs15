@@ -17,7 +17,17 @@ const seedProducts = async () => {
 
 seedProducts()
 
-export async function getProducts() {
+export async function getProducts(query?: string) {
+	if (query) {
+		return prisma.product.findMany({
+			where: {
+				OR: [
+					{ title: { contains: query } },
+					{ description: { contains: query } },
+				],
+			},
+		})
+	}
 	return prisma.product.findMany()
 }
 
